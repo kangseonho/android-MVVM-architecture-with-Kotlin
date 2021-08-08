@@ -5,6 +5,7 @@ import androidx.lifecycle.Observer
 class LiveDataTestObserver<T> : Observer<T> {
 
     private val values: MutableList<T> = mutableListOf()
+
     override fun onChanged(t: T) {
         values.add(t)
     }

@@ -5,7 +5,6 @@ import com.example.forarchitecturestudy.data.repository.ToDoRepository
 import com.example.forarchitecturestudy.domain.todo.GetToDoListUseCase
 import com.example.forarchitecturestudy.domain.todo.InsertToDoListUseCase
 import com.example.forarchitecturestudy.presentation.list.ListViewModel
-import org.koin.android.experimental.dsl.viewModel
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
