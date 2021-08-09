@@ -1,4 +1,4 @@
-commit Title: TDD 마무리
+commit title: TDD 마무리
 
 1. Gradle에 androidx.core:core-ktx 라이브러리 버전을 1.6.0으로 추가 시 kotlin 라이브러리 버전도 1.5.x 버전으로 업그레이드 됨, 따라서 해당 프로젝트 plugin은 kotlin 1.4.32이기 때문에 kotlin.collection 사용 중 에러 발생.
 
@@ -8,7 +8,7 @@ commit Title: TDD 마무리
 -------------------------------------------------------------------------------------------------
 
 
-commit Title: list update 기능 테스트 추가
+commit title: list update 기능 테스트 추가
 
 1. UnitTest 중, 
 
