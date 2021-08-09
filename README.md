@@ -8,7 +8,7 @@ commit Title: TDD 마무리
 -------------------------------------------------------------------------------------------------
 
 
-commit Title: list update 테스트 추가
+commit Title: list update 기능 테스트 추가
 
 1. UnitTest 중, 
 
