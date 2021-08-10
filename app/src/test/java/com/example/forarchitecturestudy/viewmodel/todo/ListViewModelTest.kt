@@ -61,8 +61,15 @@ internal class ListViewModelTest: ViewModelTest() {
         assert(getToDoItemUseCase(todo.id)?.hasCompleted?:false == todo.hasCompleted )
     }
 
-//    @Test
-//    fun `test Item Delete All`(): Unit = runBlockingTest {
-//
-//    }
+    @Test
+    fun `test Item Delete All`(): Unit = runBlockingTest {
+        val testObserverable = viewModel.todoListLiveData.test()
+        viewModel.deleteAll()
+        testObserverable.assertValueSequence(
+                listOf(
+                        mockList,
+                        listOf()
+                )
+        )
+    }
 }
