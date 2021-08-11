@@ -1,6 +1,5 @@
 package com.example.forarchitecturestudy.presentation.list
 
-import android.annotation.SuppressLint
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -17,11 +16,12 @@ internal class ListViewModel(
         private val updateToDoUseCase: UpdateToDoListUseCase,
         private val deleteAllToDoListUseCase: DeleteAllToDoListUseCase
 ): ViewModel() {
-        private var _toDoListLiveData = MutableLiveData<List<ToDoEntity>>()
-        val todoListLiveData: LiveData<List<ToDoEntity>> = _toDoListLiveData
+        private var _toDoListLiveData = MutableLiveData<ToDoListState>(ToDoListState.UnInitialized)
+        val todoListLiveData: LiveData<ToDoListState> = _toDoListLiveData
 
         fun fetchData(): Job = viewModelScope.launch {
-                _toDoListLiveData.postValue(getToDoListUseCase())
+                _toDoListLiveData.postValue(ToDoListState.Loading)
+                _toDoListLiveData.postValue(ToDoListState.Success(getToDoListUseCase()))
         }
 
         fun updateEntity(toDoEntity: ToDoEntity) = viewModelScope.launch {
@@ -29,7 +29,8 @@ internal class ListViewModel(
         }
 
         fun deleteAll() = viewModelScope.launch {
+                _toDoListLiveData.postValue(ToDoListState.Loading)
                 deleteAllToDoListUseCase()
-                _toDoListLiveData.postValue(listOf())
+                _toDoListLiveData.postValue(ToDoListState.Success(getToDoListUseCase()))
         }
 }
