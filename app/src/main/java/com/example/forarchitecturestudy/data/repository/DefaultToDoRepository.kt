@@ -14,6 +14,10 @@ class DefaultToDoRepository: ToDoRepository {
         this.toDoList.addAll(toDoList)
     }
 
+    override suspend fun insertToDoItem(toDoItem: ToDoEntity) {
+        TODO("Not yet implemented")
+    }
+
     override suspend fun updateToDoItem(toDoItem: ToDoEntity): Boolean {
         val foundToDoEntity = toDoList.find {it.id == toDoItem.id}
         if (foundToDoEntity == null) {
